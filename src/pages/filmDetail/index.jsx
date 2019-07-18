@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const FilmDetail = ({ modules, teste, dispatch }) => (
-    <div>
-        <h2>{teste}</h2>
-        <button onClick={() => dispatch(toggleTest('test3'))}>trocar</button>
-        <div>
-            {modules.map(module => (
-                <div key={module.id}>
-                    <div>{module.title}</div>
+class FilmDetail extends Component{
+    render(){
+        return (
+            <div>
+                <h2>{this.props.teste}</h2>
+                <button onClick={this.props.onToggleTest}>trocar</button>
+                <div>
+                    {this.props.modules.map(module => (
+                        <div key={module.id}>
+                            <div>{module.title}</div>
+                        </div>
+                    ))}        
                 </div>
-            ))}        
-        </div>
-    </div>
-   
-);
+            </div>           
+        );
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        teste: state.teste,
+        modules: state.modules
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onToggleTest: () => dispatch(toggleTest('test3'))
+    }
+}
 
 function toggleTest(str){
     return {
@@ -23,10 +39,4 @@ function toggleTest(str){
     }
 }
 
-
-
-export default connect(
-    state => ({ 
-        teste: state.teste,
-        modules: state.modules 
-    }))(FilmDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(FilmDetail);
