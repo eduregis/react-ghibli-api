@@ -5,7 +5,6 @@ class FilmDetail extends Component{
     render(){
         return (
             <div>
-                <h2>{this.props.teste}</h2>
                 <button onClick={this.props.onToggleTest}>trocar</button>
                 <div>
                     {this.props.modules.map(module => (

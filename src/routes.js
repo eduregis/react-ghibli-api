@@ -13,15 +13,15 @@ const Routes = () => (
         <Header/>
         <Switch>            
             <Route 
-                exact path="/films" 
+                exact path='/films' 
                 component={() => <Films/>}>
             </Route>
             <Route 
-                exact path="/people" 
+                exact path='/people' 
                 component={() => <People/>}>
             </Route>
             <Route 
-                path="/films/aaa" 
+                path='/films/aaa' 
                 component={() => <FilmDetail/>}>
             </Route>
         </Switch>

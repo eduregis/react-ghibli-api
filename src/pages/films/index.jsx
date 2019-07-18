@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Films extends Component {
 
@@ -24,8 +25,8 @@ class Films extends Component {
               {this.state.data.map((value, key) => (          
                 <div key={value.id}>
                     <p>{value.title}</p>  
-                    <Link to="/films/aaa">
-                      <button>details</button>   
+                    <Link to='/films/aaa'>
+                      <button onClick={() => this.props.onCheckFilmDetail(value.title)}>details</button>   
                     </Link>                    
                 </div>
               ))}
@@ -35,4 +36,18 @@ class Films extends Component {
     }
 }
 
-export default Films;
+const mapStateToProps = state => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onCheckFilmDetail: (film_url) => dispatch({type: 'SET_FILM_URL', val: film_url})
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Films);
