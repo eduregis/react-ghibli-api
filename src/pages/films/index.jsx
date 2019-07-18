@@ -25,8 +25,8 @@ class Films extends Component {
               {this.state.data.map((value, key) => (          
                 <div key={value.id}>
                     <p>{value.title}</p>  
-                    <Link to='/films/aaa'>
-                      <button onClick={() => this.props.onCheckFilmDetail(value.title)}>details</button>   
+                    <Link to={`/films/${value.id}`}>
+                      <button onClick={() => this.props.onCheckFilmDetail(value.id)}>details</button>   
                     </Link>                    
                 </div>
               ))}
