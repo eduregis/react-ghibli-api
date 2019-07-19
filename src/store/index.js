@@ -1,14 +1,8 @@
 import { createStore } from 'redux';
 
 const INITIAL_STATE = {
-    film_url: null,
-    teste: 'test2',
-    modules:[
-        {
-            id: 1,
-            title: "test"
-        }
-    ]
+    base_url: 'https://ghibliapi.herokuapp.com',
+    film_url: null,    
 }
 
 function reducer(state = INITIAL_STATE, action) {

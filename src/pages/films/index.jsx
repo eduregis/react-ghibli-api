@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 class Films extends Component {
 
     state = {
-        api_url: 'https://ghibliapi.herokuapp.com/films/',
+        url: this.props.base_url + '/films',
         data: []
       };
     
       componentDidMount() {
-        fetch(this.state.api_url)
+        fetch(this.state.url)
           .then(result => result.json())
           .then(result => {
             console.log(result);
@@ -38,7 +38,7 @@ class Films extends Component {
 
 const mapStateToProps = state => {
   return {
-
+    base_url: state.base_url
   }
 }
 
