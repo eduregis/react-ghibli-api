@@ -14,6 +14,7 @@ class FilmDetail extends Component{
             .then(result => result.json())
             .then(result => {
                 this.setState({ data: result });
+                console.log(result)
         });    
     }
 
@@ -21,9 +22,14 @@ class FilmDetail extends Component{
         return (
             <div>
                 <div>
-                    {console.log(this.state.data)}
-                </div>                         
-                <button onClick={this.props.onToggleTest}>trocar</button>                
+                    <h1>{this.state.data.title}</h1>
+                    <h3><strong>Diretor: </strong>{this.state.data.director}</h3>
+                    <h3><strong>Produtor: </strong>{this.state.data.producer}</h3>
+                    <h3><strong>Ano de lançamento: </strong>{this.state.data.release_date}</h3>                    
+                    <h3><strong>Nota da Crítica: </strong>{this.state.data.rt_score}%</h3>
+                    <p><strong>Descrição: </strong>{this.state.data.description}</p>
+                
+                </div>                
             </div>           
         );
     }
@@ -38,7 +44,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onToggleTest: () => dispatch(toggleTest('test3'))
+       
     }
 }
 

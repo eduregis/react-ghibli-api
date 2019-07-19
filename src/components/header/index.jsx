@@ -12,7 +12,6 @@ class Header extends Component {
                 <Link to="/people">
                     <span>People</span>
                 </Link>
-                <span>{ this.props.film_url }</span>
                 <hr/>
             </div>
         );
